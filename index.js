@@ -48,16 +48,16 @@ inquirer.prompt([
         type: "list",
         message: "Select license: ",
         name: "projectLicense",
-        choices: ["MIT", "GPL-3.0", "Apache-2.0", "None"]
+        choices: ["MIT", "GPL", "Apache", "None"]
     }
 ]).then(res => {
     project.title = `# ${res.projectTitle}`;
-    project.description = res.projectDescription;
+    project.description = `\n${res.projectDescription}`;
     project.installation = `\`${res.projectInstallation}\``;
     project.usage = res.projectUsage;
     project.contribution = res.projectContribution;
     project.test = res.projectTest;
-    project.license = res.projectLicense !== "None" ? `![License:${res.projectLicense}](https://img.shields.io/badge/license-${encodeURIComponent(res.projectLicense)}-blue)` : `N/A`;
+    project.license = res.projectLicense !== "None" ? `![License: ${res.projectLicense}](https://img.shields.io/badge/license-${encodeURIComponent(res.projectLicense)}-blue)` : `None`;
     writeFile();
 });
 
@@ -73,8 +73,8 @@ const getProjectData = () => {
             data += "## " + capitalizeWord(key) + "\n";
         }
         data += (project[key] + "\n");
-        if (key === "title"){
-            data += `${project.license}\n`;
+        if (key === "title" && project.license !== "None"){
+            data += `${project.license}` + "\n\n\n";
         }
         if (key === "description") {
             data += tableContent;
