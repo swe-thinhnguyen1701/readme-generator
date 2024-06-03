@@ -1,18 +1,5 @@
-# asd
-![License: MIT](https://img.shields.io/badge/license-MIT-blue)
+# README Generator
+## Achievement
+README generator can help you to create a professional README in short time.
 
-
-asd
-## Table Content
-- [Installation](#istallation)
-- [Usage](#usage)
-- [Contribution](#contribution)
-- [Test](#test)
-## Installation
-`as`
-## Usage
-dasd
-## Contribution
-asd
-## Test
-asd
+## README file output
