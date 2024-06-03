@@ -82,7 +82,7 @@ const getProjectData = () => {
 }
 
 const writeFile = () => {
-    fs.writeFile("README.md", getProjectData(), (err) => {
+    fs.writeFile("./output/README.md", getProjectData(), (err) => {
         err ? console.error(err) : console.log("README is created!!!");
     })
 }
