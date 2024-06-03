@@ -57,12 +57,9 @@ inquirer.prompt([
     project.usage = res.projectUsage;
     project.contribution = res.projectContribution;
     project.test = res.projectTest;
-    project.license = res.projectLicense !== "None" ? `![License: ${res.projectLicense}](https://img.shields.io/badge/license-${encodeURIComponent(res.projectLicense)}-blue)` : `None`;
+    project.license = res.projectLicense !== "None" ? `![License: ${res.projectLicense}](https://img.shields.io/badge/license-${res.projectLicense}-blue)` : `None`;
     writeFile();
 });
-
-
-// console.log(projectTitle);
 
 const getProjectData = () => {
     let data = "";
@@ -74,7 +71,7 @@ const getProjectData = () => {
         }
         data += (project[key] + "\n");
         if (key === "title" && project.license !== "None"){
-            data += `${project.license}` + "\n\n\n";
+            data += `${project.license}` + "\n\n";
         }
         if (key === "description") {
             data += tableContent;
